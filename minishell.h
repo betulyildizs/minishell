@@ -6,7 +6,7 @@
 /*   By: halozdem <halozdem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:38:02 by halozdem          #+#    #+#             */
-/*   Updated: 2024/09/23 16:05:48 by halozdem         ###   ########.fr       */
+/*   Updated: 2024/10/04 19:14:13 by halozdem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@
 #include "lib/libft/libft.h"
 #include <stdbool.h>
 
+# define SPACE " \t\n"
+# define SEP "|<> \t\n"
+# define QUOTES "'\""
 
 typedef struct s_redirs
 {
+
 	//int		type;
 	char	*file;
 	int		fd;
@@ -62,15 +66,8 @@ typedef struct s_env
 	struct s_env		*prev;
 }	t_env;
 
-void	init_struct(t_cmd *cmd);
-t_env	*new_node(t_env **lst, char *env, int end, int i);
-t_env	**envfunc(char **env, int n);
-int		builtinfunc(char *input, char **env);
-char	**split_by_real_spaces(char *input);
-char	**split_words(char *input, char **str, unsigned int word_count);
-char	*put_word(char *word, char *input, int i, int word_len);
-int		word_counter(char *input);
-char	**split_by_meta(char **str);
+int	get_token(char **ps, char **pe, char **ts, char **te);
+int	parser(char *ps, char *pe, t_cmd **cmd);
 
 
 #endif

@@ -1,5 +1,5 @@
 NAME = minishell
-SRC = main.c init.c env.c parser/parser.c parser/meta_char.c
+SRC = parser/tokenizer.c minishell.c
 OBJ := $(SRC:.c=.o)
 CFLAGS = #-Wall -Wextra -Werror
 CC = gcc
